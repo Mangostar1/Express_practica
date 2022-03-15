@@ -1,0 +1,63 @@
+:root{
+    --color1: rgb(218, 184, 139);
+    --color2: rgb(243, 233, 221);
+    --color3: rgb(253, 246, 236);
+    --color4: rgb(183, 202, 219);
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* header y nav */
+
+header{
+    background-color: var(--color1);
+
+    height: 60px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-content: center;
+}
+
+.nav{
+    margin-left: 20px;
+}
+
+.menu{
+    list-style: none;
+
+    display: flex;
+    flex-flow: row wrap;
+    gap: 5px;
+}
+
+.link{
+    text-decoration: none;
+
+    color: black;
+    background-color: var(--color4);
+
+    padding: 10px 20px;
+}
+
+.link:hover{
+    background-color: var(--color2);
+    transition: 0.5s;
+}
+
+body{
+    background-color: var(--color3);
+}
+
+/* media queries */
+
+@media (max-width: 768px){
+    .menu{
+        display: none;
+    }
+
+}
