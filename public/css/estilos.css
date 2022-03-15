@@ -57,7 +57,7 @@ body{
 
 @media (max-width: 768px){
     .menu{
-        display: none;
+        /* display: none; */
     }
 
 }
