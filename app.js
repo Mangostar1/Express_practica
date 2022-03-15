@@ -16,7 +16,7 @@ console.log(cowsay.say({
 const express = require('express');
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 
 //motor de plantillas
@@ -37,8 +37,8 @@ app.use((req, res, next) => { //este metodo esta reciviendo cualquier error en l
     res.status(404).render('404')
 })
 
-app.listen(PORT, () => {
-    console.log(`server escuchando en el puerto ${PORT}`);
+app.listen(port, () => {
+    console.log(`server escuchando en el puerto ${port}`);
 })
 
 
