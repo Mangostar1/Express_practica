@@ -53,6 +53,13 @@ body{
     background-color: var(--color3);
 }
 
+.mascotasInfo{
+    background-color: var(--color2);
+
+    margin: 15px;
+    padding: 10px;
+}
+
 /* media queries */
 
 @media (max-width: 768px){

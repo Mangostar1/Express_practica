@@ -1,22 +1,19 @@
-/* const {frutas, dinero} = require('./frutas.js');
-const cowsay = require('cowsay');
-
-frutas.forEach(item => {
-    console.log(item);
-});
-
-console.log(dinero);
-
-console.log(cowsay.say({
-    text: 'Holam, soy una vaca',
-    e: 'oO',
-    T: 'U'
-})); */
-
 const express = require('express');
 const app = express();
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000; //se accede al valor del puerto almacenado en la variable de entorno del host o sino accede al puerto 3000
+
+//coneccion a base de datos
+const mongoose = require('mongoose');
+
+const user = 'MangostarTest';
+const password = '12345';
+const dbname = 'veterinario'
+const uri = `mongodb+srv://${user}:${password}@test.gsep6.mongodb.net/${dbname}?retryWrites=true&w=majority`; //url de coneccion
+
+mongoose.connect(uri)
+    .then(() => {console.log('Base de datos conectada')})
+    .catch((e) => {console.log(e)})
 
 
 //motor de plantillas
@@ -25,13 +22,11 @@ app.set('views', __dirname + '/views')
 
 app.use(express.static(__dirname + '/public'))//este metodo configura la careta public como los recursos
 
-app.get('/', (req, res) => {
-    res.render('index', {titulo: 'Mi titulo dinamico'});
-})
+//rutas website
 
-app.get('/servicios', (req, res) => {
-    res.render(`servicios`, {tituloSV: 'Pagina de servicios'});
-})
+app.use('/', require('./router/RutasWeb'))
+
+app.use('/mascotas', require('./router/Mascotas'))
 
 app.use((req, res, next) => { //este metodo esta reciviendo cualquier error en la escritura de la url de la pagina
     res.status(404).render('404')
