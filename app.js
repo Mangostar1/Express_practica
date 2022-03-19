@@ -1,15 +1,14 @@
 const express = require('express');
 const app = express();
 
+require('dotenv').config()
+
 const port = process.env.PORT || 3000; //se accede al valor del puerto almacenado en la variable de entorno del host o sino accede al puerto 3000
 
 //coneccion a base de datos
 const mongoose = require('mongoose');
 
-const user = 'MangostarTest';
-const password = '12345';
-const dbname = 'veterinario'
-const uri = `mongodb+srv://${user}:${password}@test.gsep6.mongodb.net/${dbname}?retryWrites=true&w=majority`; //url de coneccion
+const uri = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@test.gsep6.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`; //url de coneccion
 
 mongoose.connect(uri)
     .then(() => {console.log('Base de datos conectada')})

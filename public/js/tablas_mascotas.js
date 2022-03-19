@@ -1,5 +1,5 @@
-let btn = document.querySelector('.btn');
+let btn = document.querySelectorAll('.btn');
 
-btn.onclick = () => {
+btn[0].onclick = () => {
     alert('Boton presionado');
 }
