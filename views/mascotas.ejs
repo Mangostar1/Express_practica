@@ -19,12 +19,13 @@
                             <th scope="row"> <%= mascotas.id %> </th>
                             <td><%= mascotas.nombre %></td>
                             <td><%= mascotas.descripcion %></td>
-                            <td><button>Accion</button></td>
+                            <td><button class="btn">Accion</button></td>
                         </tr>
                     <% }) %>
                 <% } %>
             </tbody>
         </table>
     </div>
+    <%- include('template/script_one.ejs')%>
 </body>
 </html>
